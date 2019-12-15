@@ -3,9 +3,27 @@ Teste para a vaga de Desenvolvedor Back-end na Empresa Devninjas
 
 # Instalçãoes
 
-Banco de dados PostgreSQL
+Banco de dados PostgreSQL, crie um bancoo de dados:
+
+>CREATE DATABASE lojinha;
+
 
 Instale o nvm
 
 Instale a versão do node v12.13.1
+
+Instalar o knex e pg globalmente
+
+>npm install knex -g
+
+>npm install pg -g
+
+Na pasta do projeto execute
+
+>npm install
+
+Agora para criar o banco de dados
+
+>knex migrate:latest
+
 
