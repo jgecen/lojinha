@@ -5,8 +5,13 @@ const createProductDao = (knex) => {
         return _knex('products').returning(['id', 'sku']).insert(product);
     }
 
+    const _getAll = () => {
+        return _knex.select().table('products')
+
+    }
     return {
-        save: _save
+        save: _save,
+        getAll: _getAll
     }
 }
 

@@ -38,5 +38,13 @@ describe('Teste de product.dao', () => {
             expect(err).not.toBeNull()
         })
     });
+    test('testando a function getAll', () => {
+        const dao = createProductDao(knex)
+        dao.getAll().then((data) => {
+            expect(data).not.toBeNull()
+        }).catch((err) => {
+            expect(err).toBeNull()
+        })
+    });
 
 });
