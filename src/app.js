@@ -4,11 +4,15 @@ const bodyParser = require('body-parser')
 
 const productRouter = require('./routers/product.router')
 
+const customerRouter = require('./routers/customer.router')
+
 const app = express()
 
 app.use(bodyParser.json())
 
 app.use('/products', productRouter)
+
+app.use('/customers', customerRouter)
 
 app.get('/', (req, res) => res.send('Hello World'))
 

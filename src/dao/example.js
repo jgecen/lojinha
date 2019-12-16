@@ -1,6 +1,7 @@
 const knex = require('./knex')
+const { validate } = require('cpf-check');
 
-
+/*
 knex('products')
     .returning(['id', 'sku'])
     .insert({
@@ -13,8 +14,10 @@ knex('products')
         console.log(err.detail)
     })
 
-    
 
+*/
+
+console.log(validate("00463999924"))
 
 
 
