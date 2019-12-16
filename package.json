@@ -4,7 +4,7 @@
   "description": "Teste para a vaga de Desenvolvedor Back-end na Empresa Devninjas",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node src/server.js",
+    "start": "node src/app.js",
     "test": "jest",
     "migrate-test": "knex migrate:latest --env test",
     "migrate": "knex migrate:latest"
