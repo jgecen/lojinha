@@ -17,10 +17,10 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   },
-  production: {
+  test: {
     client: 'postgresql',
     connection: {
-      database: 'lojinha',
+      database: 'lojinha_test',
       user:     'postgres',
       password: 'postgres'
     },

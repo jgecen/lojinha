@@ -7,10 +7,14 @@ Banco de dados PostgreSQL, crie um bancoo de dados:
 
 >CREATE DATABASE lojinha;
 
+>CREATE DATABASE lojinha_test;
+
 
 Instale o nvm
 
 Instale a versão do node v12.13.1
+
+Instale a última versão do yarn
 
 Instalar o knex e pg globalmente
 
@@ -22,8 +26,10 @@ Na pasta do projeto execute
 
 >npm install
 
-Agora para criar o banco de dados
+Agora para criar os banco de dados
 
 >knex migrate:latest
+
+>knex migrate:latest --env test
 
 
