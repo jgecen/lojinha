@@ -1,5 +1,4 @@
 const express = require("express")
-const { body } = require("express-validator")
 const { check } = require("express-validator")
 const { validate } = require('cpf-check');
 const router = express.Router()
