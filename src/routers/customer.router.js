@@ -1,20 +1,19 @@
 const express = require("express")
+const { body } = require("express-validator")
 const { check } = require("express-validator")
 const { validate } = require('cpf-check');
 const router = express.Router()
 const knex = require("../dao/knex")
-const custometDao = require('../dao/customer.dao')(knex)
-const customerController = require('../controller/customer.controller')(custometDao)
+const customerDao = require('../dao/customer.dao')(knex)
+const customerController = require('../controller/customer.controller')(customerDao)
 
 router.get("/", customerController.get)
-router.post("/",
-    [
-        check("cpf").custom(cpf => {
-            if (!validate(cpf)) {
-                return Promise.reject("O campo cpf é invalido.")
-            }
-        })
-    ]
-    , customerController.post)
+router.post("/", check("cpf").custom(cpf => {
+    if(!validate(cpf)){
+        return Promise.reject('CPF inválido.');
+    } else {
+        return true
+    }
+}), customerController.post)
 
 module.exports = router

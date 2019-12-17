@@ -17,7 +17,7 @@ knex('products')
 
 */
 
-console.log(validate("00463999924"))
+console.log(validate("34391642093"))
 
 
 
