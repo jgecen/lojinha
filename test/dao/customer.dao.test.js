@@ -1,7 +1,7 @@
 const knex = require('./knex-test')
 const createCustomerDao = require('../../src/dao/customer.dao')
 
-describe('Teste de product.dao', () => {
+describe('Teste de customer.dao', () => {
 
     afterAll(async () => {
         await knex('customers').del()
