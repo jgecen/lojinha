@@ -4,13 +4,12 @@ const createOrderItemDao = (knex) => {
 
 
     const _save = (orderId, orderItem) => {
-
         return _knex('order_itens').returning(['id'])
             .insert({
                 order_id: orderId,
                 product_id: orderItem.product.id,
                 amount: orderItem.amount,
-                price_unit: orderItem.amount,
+                price_unit: orderItem.price_unit,
                 total: orderItem.total
             });
     }
