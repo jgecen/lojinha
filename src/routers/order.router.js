@@ -9,6 +9,13 @@ const orderService = require('../service/order.service')(orderDao, orderItemDao)
 
 const orderController = require('../controller/order.controller')(orderService)
 
+const validatorNumber = {
+    notEmpty: true,
+    custom: {
+        options: (value) => { return value > 0 },
+        errorMessage: 'Campo tem que ser maior que 0'
+    }
+}
 router.get("/", orderController.get)
 router.post("/",
     checkSchema({
@@ -16,24 +23,17 @@ router.post("/",
             notEmpty: true,
             errorMessage: 'Campo obrigatório'
         },
-        total: {
-            notEmpty: true
-        },
+        total: validatorNumber,
+
         'buyer.id': {
             notEmpty: true
         },
         items: {
             notEmpty: true
         },
-        'items.*.amount': {
-            notEmpty: true
-        },
-        'items.*.price_unit': {
-            notEmpty: true
-        },
-        'items.*.total': {
-            notEmpty: true
-        },
+        'items.*.amount': validatorNumber,
+        'items.*.price_unit': validatorNumber,
+        'items.*.total': validatorNumber,
         'items.*.product.id': {
             notEmpty: true
         }
