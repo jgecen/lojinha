@@ -16,7 +16,23 @@ const validatorNumber = {
         errorMessage: 'Campo tem que ser maior que 0'
     }
 }
-router.get("/", orderController.get)
+//router.get("/", orderController.get)
+
+router.put("/",
+    checkSchema({
+        status: {
+            notEmpty: true,
+            errorMessage: 'Campo obrigatório'
+        },
+        order_id: {
+            notEmpty: true,
+            errorMessage: 'Campo obrigatório'
+        }
+
+    }),
+
+    orderController.put)
+
 router.post("/",
     checkSchema({
         status: {

@@ -26,9 +26,13 @@ const createOrderService = (orderDao, orderItemDao) => {
 
     }
 
+    const _updateStatus = (status) => {
+        return orderDao.updateStatus(status)
+    }
 
     return {
-        save: _save
+        save: _save,
+        updateStatus: _updateStatus
     }
 }
 

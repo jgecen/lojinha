@@ -10,8 +10,12 @@ const createOrderDao = (knex) => {
         return _knex.select().table('orders')
 
     }
+    const _updateStatus = (status) => {
+        return _knex('orders').where({id: status.order_id}).update({status: status.status})
+    }
     return {
         save: _save,
+        updateStatus: _updateStatus,
         getAll: _getAll
     }
 }
