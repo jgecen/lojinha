@@ -32,4 +32,16 @@ Agora para criar os banco de dados
 
 >knex migrate:latest --env test
 
+Se quiser uma base de dados populada 
+
+>Importe o arquivo lojinha.sql
+
+Para rodar a aplicação 
+
+>npm run start
+
+Para executar os testes
+
+>npm run test
+
 
