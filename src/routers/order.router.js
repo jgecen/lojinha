@@ -1,5 +1,5 @@
 const express = require("express")
-const { check } = require("express-validator")
+const { body, checkSchema } = require("express-validator")
 const router = express.Router()
 const knex = require("../dao/knex")
 
@@ -10,6 +10,34 @@ const orderService = require('../service/order.service')(orderDao, orderItemDao)
 const orderController = require('../controller/order.controller')(orderService)
 
 router.get("/", orderController.get)
-router.post("/", orderController.post)
+router.post("/",
+    checkSchema({
+        status: {
+            notEmpty: true,
+            errorMessage: 'Campo obrigatório'
+        },
+        total: {
+            notEmpty: true
+        },
+        'buyer.id': {
+            notEmpty: true
+        },
+        items: {
+            notEmpty: true
+        },
+        'items.*.amount': {
+            notEmpty: true
+        },
+        'items.*.price_unit': {
+            notEmpty: true
+        },
+        'items.*.total': {
+            notEmpty: true
+        },
+        'items.*.product.id': {
+            notEmpty: true
+        }
+    })
+    , orderController.post)
 
 module.exports = router

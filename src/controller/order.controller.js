@@ -12,14 +12,17 @@ const createOrderController = (serviceOrder) => {
         if (!errors.isEmpty()) {
             return res.status(422).json({ errors: errors.array() });
         } else {
-            try {
-                serviceOrder.save(req.body)
-                res.status(201)
-                res.send({ message: "Recurso criado com sucesso!"})
-            } catch (error) {
-                res.status(412)
-                res.send({ erro: err.detail })            
-            }
+
+            serviceOrder.save(req.body)
+                .then(data => {
+                    res.status(201)
+                    res.send({ message: "Recurso criado com sucesso!" })
+
+                }).catch(err => {
+                    res.status(412)
+                    res.send({ erro: err.detail })
+
+                })
         }
     }
     return {
