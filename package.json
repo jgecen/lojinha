@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/jgecen/lojinha#readme",
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "cpf-check": "^3.0.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-validator": "^6.3.0",
     "knex": "^0.20.4",
     "pg": "^7.14.0"
